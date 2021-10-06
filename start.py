@@ -8,6 +8,10 @@ import requests
 import json
 
 
+"""
+Usage: start.py [url] 
+"""
+
 class Args(NamedTuple):
     """Command-line arguments"""
 
@@ -71,9 +75,7 @@ def main() -> None:
                     print("Running actions for database:",data['db_name'])
 
                     ### Instantiating chrome driver for selenium ###
-                    chrome_options = Options()
-                    chrome_options.add_argument("--kiosk")
-                    driver = webdriver.Chrome(options=chrome_options)
+                    driver = webdriver.Chrome()
 
                     ### Connecting to the url given
                     driver.get("http://" + url)
